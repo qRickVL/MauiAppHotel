@@ -6,4 +6,21 @@ public partial class SegundaTela : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    private void Finalizar(object sender, EventArgs e)
+    {
+
+		try
+		{
+
+			Navigation.PopAsync();
+
+		} catch (Exception ex)
+		{
+
+			DisplayAlert("Ops", ex.Message, "OK");
+
+		}
+
+    }
 }

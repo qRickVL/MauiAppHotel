@@ -31,7 +31,12 @@
                FontFamily="PlayBold"
                FontSize="20"
                VerticalOptions="Center" 
-               HorizontalOptions="Center" Margin="50"/>
+               HorizontalOptions="Center" Margin="50" />
+
+        <Button Text="Voltar" Clicked="Voltar" 
+                TextColor="{StaticResource White}" 
+                BackgroundColor="{StaticResource Primary}" 
+                HorizontalOptions="Center"/>
 
     </VerticalStackLayout>
 </ContentPage>

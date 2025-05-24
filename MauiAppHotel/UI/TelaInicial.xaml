@@ -54,43 +54,55 @@
                 <Label Text="Escolha sua Suite" />
 
                 <Picker x:Name="PckSuite"
-                        Title="Selecione sua Acomodação" />
+                        Title="Selecione sua Acomodação" 
+                        ItemDisplayBinding="{Binding NomeSuite}"/>
 
                 <Frame Padding="10"
                        Margin="10"
                        BackgroundColor="{StaticResource Gray950}">
 
-                    <VerticalStackLayout>
+                    <Grid ColumnDefinitions="*, *" RowDefinitions="Auto, Auto, Auto">
 
-                        <Label Text="Periodo da Estadia" />
+                        <Label Grid.Column="0" Grid.Row="0"
+                               Text="Periodo da Estadia" />
+
+                        <Label Grid.Column="0" Grid.Row="1"
+                               Text="Check-in:" />
                         
-                        <HorizontalStackLayout>
+                        <DatePicker Grid.Column="1" Grid.Row="1"
+                                    x:Name="DtpckCheckin"
+                                    Format="dd/mm/yyyy" 
+                                    DateSelected="DtpckCheckin_DateSelected" />
 
-                            <Label Text="Check-in:" />
-                            <DatePicker x:Name="DtpckCheckin"
-                                        Format="dd/mm/yyyy" />
+                        <Label Grid.Column="0" Grid.Row="2"
+                               Text="Check-out:" />
+                        
+                        <DatePicker Grid.Column="1" Grid.Row="2"
+                                    x:Name="DtpckCheckout"
+                                    Format="dd/mm/yyyy" />
 
-                        </HorizontalStackLayout>
 
-                        <HorizontalStackLayout>
-
-                            <Label Text="Check-out:" />
-                            <DatePicker x:Name="DtpckCheckout"
-                                        Format="dd/mm/yyyy" />
-
-                        </HorizontalStackLayout>
-
-                    </VerticalStackLayout>
+                    </Grid>
                     
                 </Frame>
 
-                <Button Text="Avançar" 
-                        TextColor="{StaticResource White}"
-                        BackgroundColor="{StaticResource Primary}" />
+                <Grid ColumnDefinitions="*, *" >
 
-                <Button Text="Sobre"
-                        TextColor="{StaticResource White}"
-                        BackgroundColor="{StaticResource Primary}" />
+                    <Button Text="Avançar" Clicked="Avancar" 
+                            TextColor="{StaticResource White}"
+                            BackgroundColor="{StaticResource Primary}"
+                            Grid.Column="1"
+                            HorizontalOptions="Center" />
+
+                    <Button Text="Sobre" Clicked="Sobre"
+                            TextColor="{StaticResource White}"
+                            BackgroundColor="{StaticResource Primary}" 
+                            Grid.Column="0"
+                            HorizontalOptions="Center" />
+
+                </Grid>
+                
+                
 
             </VerticalStackLayout>
             
