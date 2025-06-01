@@ -1,3 +1,5 @@
+using MauiAppHotel.Models;
+
 namespace MauiAppHotel.UI;
 
 public partial class TelaInicial : ContentPage
@@ -21,18 +23,34 @@ public partial class TelaInicial : ContentPage
 
 	}
 
-    private void Avancar(object sender, EventArgs e)
+    private async void Avancar(object sender, EventArgs e)
     {
 
 		try
 		{
 
-			Navigation.PushAsync(new SegundaTela());
+			Hospedagem hospedagem = new Hospedagem
+			{
+
+				SuiteSelecionada = (Suite)PckSuite.SelectedItem,
+				QntAdultos = Convert.ToInt32(StpAdultos.Value),
+				QntCriancas = Convert.ToInt32(StpCriancas.Value),
+				DataCheckIn = DtpckCheckin.Date,
+				DataCheckOut = DtpckCheckout.Date,
+
+			};
+
+			await Navigation.PushAsync(new SegundaTela
+			{
+
+				BindingContext = hospedagem
+
+			});
 
 		} catch (Exception ex)
 		{
 
-			DisplayAlert("Ops", ex.Message, "OK");
+			await DisplayAlert("Ops", ex.Message, "OK");
 
 		}
 

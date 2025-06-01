@@ -7,7 +7,7 @@
     
     <VerticalStackLayout VerticalOptions="CenterAndExpand">
 
-        <Label Text="Suite Super Luxo"
+        <Label Text="{Binding SuiteSelecionada.NomeSuite}"
                TextColor="{StaticResource Primary}"
                FontFamily="PlayBold"
                FontSize="45"
@@ -19,9 +19,9 @@
             <Grid ColumnDefinitions="*, *, *, *" >
 
                 <Label Grid.Column="0" Text="Adultos: " HorizontalOptions="Center" />
-                <Label Grid.Column="1" Text="5" TextColor="{StaticResource Primary}" HorizontalOptions="Center" />
+                <Label Grid.Column="1" Text="{Binding QntAdultos}" TextColor="{StaticResource Primary}" HorizontalOptions="Center" />
                 <Label Grid.Column="2" Text="Crianças: " HorizontalOptions="Center" />
-                <Label Grid.Column="3" Text="10" TextColor="{StaticResource Primary}" HorizontalOptions="Center" />
+                <Label Grid.Column="3" Text="{Binding QntCriancas}" TextColor="{StaticResource Primary}" HorizontalOptions="Center" />
 
             </Grid>
             
@@ -35,9 +35,9 @@
                 <Label Grid.Row="0" Grid.Column="1" Text="Check-out:" HorizontalOptions="Center"/>
                 <Label Grid.Row="0" Grid.Column="2" Text="Estadia:" HorizontalOptions="Center"/>
 
-                <Label Grid.Row="1" Grid.Column="0" Text="11/11/2000" HorizontalOptions="Center" />
-                <Label Grid.Row="1" Grid.Column="1" Text="11/11/2000:" HorizontalOptions="Center"/>
-                <Label Grid.Row="1" Grid.Column="2" Text="1" HorizontalOptions="Center"/>
+                <Label Grid.Row="1" Grid.Column="0" Text="{Binding DataCheckIn, StringFormat='{}{0:dd/MM/yyyy}'}" HorizontalOptions="Center" />
+                <Label Grid.Row="1" Grid.Column="1" Text="{Binding DataCheckOut, StringFormat='{}{0:dd/MM/yyyy}'}" HorizontalOptions="Center"/>
+                <Label Grid.Row="1" Grid.Column="2" Text="{Binding Estadia}" HorizontalOptions="Center"/>
 
             </Grid>
             
@@ -48,7 +48,7 @@
             <Grid ColumnDefinitions="*, *" >
 
                 <Label Grid.Column="0" Text="Valor Total: " HorizontalOptions="Center" />
-                <Label Grid.Column="1" Text="R$ 450,00" TextColor="{StaticResource Primary}" HorizontalOptions="Center" />
+                <Label Grid.Column="1" Text="{Binding ValorTotal, StringFormat='{}{0:c}'}" TextColor="{StaticResource Primary}" HorizontalOptions="Center" />
 
             </Grid>
             
